@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 interface Tarjeta{
   titulo:string;
@@ -6,25 +6,20 @@ interface Tarjeta{
   image:string;
 }
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'AppAngularintro';
+export class AppComponent implements OnInit {
 
-  public ArregloTarjetas:Tarjeta[]=[]
+  public ArregloTarjetas: Tarjeta[]=[];
 
   ngOnInit(): void {
-
     this.ArregloTarjetas=[
-      {titulo:'video 1',subtitulo:'subtitulo 1',image:"https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7"},
-      {titulo:'video 2',subtitulo:'subtitulo 2',image:"https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7"},
-      {titulo:'video 3',subtitulo:'subtitulo 3',image:"https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7"},
-      {titulo:'video 4',subtitulo:'subtitulo 4',image:"https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7"}
+      {titulo:'video1',subtitulo:'subtitulo 1',image:'https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7'},
+      {titulo:'video2',subtitulo:'subtitulo 2',image:'data:image/jpeg;base64,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'},
+      {titulo:'video3',subtitulo:'subtitulo 3',image:'https://th.bing.com/th/id/OIP.AaMt0XLZgwEyvLTG2e4rUwHaEX?w=250&h=180&c=7&r=0&o=5&pid=1.7'},
     ]
-
   }
 }

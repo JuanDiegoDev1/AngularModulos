@@ -11,21 +11,23 @@
 </head>
 
 
-<body>
-  
-  <app-header></app-header>
+<app-header></app-header>
 
-<div>
-  <div class="container">
-    <div class="row mt-1">
-      <app-card class="col-md-4 mt-5" [dataEntrante]="card"  *ngFor="let card of ArregloTarjetas"></app-card>
-    </div>
+<div class="container">
+  <div class="row">
+    <app-card  class="col-md-4 mt-5" [dataEntrante]="card" *ngFor="let card of ArregloTarjetas"></app-card>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <app-card2 class="col-md-4 mt-5" [dataEntrante2]="card" *ngFor="let card of ArregloTarjetas"></app-card2>
   </div>
 </div>
 
-  
 
-  
+
+
+<body>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
